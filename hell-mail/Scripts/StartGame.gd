@@ -16,7 +16,7 @@ var mail_index = 0
 func _ready():
 	#load_scene()
 	#pass # Replace with function body.
-	print(typeof(get_node("MailNode")))
+	#print(typeof(get_node("MailNode")))
 	create_queue(1, true, false, false)
 
 
@@ -48,7 +48,7 @@ func spawn_object(mail_index):
 	#need to add object to node view as a child
 	var mail_res = load("res://Scenes/%s.tscn" % mail[mail_index])
 	var mail_node = mail_res.instance()
-	#mail_node.set_position(start of conveyor belt)
+	mail_node.set_position(get_node("MailNode/SpawnPos").get_position())
 	get_node("MailNode").add_child(mail_node)
 	return mail_node
 	

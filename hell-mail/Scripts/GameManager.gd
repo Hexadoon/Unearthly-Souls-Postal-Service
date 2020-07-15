@@ -1,7 +1,7 @@
 extends Node
 
 var current_score = 100
-var goal_score
+export (int) var goal_score
 
 var timer = 0
 var paused = false

@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/conveyorbelt.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tileGreen_03.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/StartGame.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Wall.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/ViewArea.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/PunchOutCard.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/PauseLayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/GuideButton.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -15,6 +19,8 @@ region = Rect2( 0, 0, 880, 88 )
 extents = Vector2( 511.797, 43.8626 )
 
 [sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 11.6121, 72.904 )
 
 [node name="World" type="Node"]
@@ -36,6 +42,12 @@ shape = SubResource( 2 )
 
 [node name="MailNode" type="Node" parent="."]
 
+[node name="SpawnPos" type="Area2D" parent="MailNode"]
+position = Vector2( 64.2978, 168.319 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MailNode/SpawnPos"]
+shape = SubResource( 3 )
+
 [node name="Wall" type="Area2D" parent="."]
 position = Vector2( 1047.99, 148.136 )
 collision_mask = 3
@@ -47,7 +59,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2( -45.4662, 0 )
 scale = Vector2( 1.48, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ScoreTracker" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -72,6 +84,72 @@ margin_top = 32.5365
 margin_right = 1016.09
 margin_bottom = 46.5365
 text = "Current:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewArea" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="ViewArea"]
+position = Vector2( 510, 487.297 )
+scale = Vector2( 15, 15 )
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea/Area2D"]
+shape = SubResource( 3 )
+
+[node name="PunchOutCard" type="Button" parent="."]
+margin_left = 36.191
+margin_top = 536.974
+margin_right = 48.191
+margin_bottom = 556.974
+text = "(punch out card)"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GuideButton" type="Button" parent="."]
+margin_left = 762.213
+margin_top = 26.487
+margin_right = 860.213
+margin_bottom = 46.487
+text = "(guide image)"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseLayer" parent="." instance=ExtResource( 8 )]
+
+[node name="guide_popup" type="Popup" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+margin_bottom = 300.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="guide_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.807843, 0.196078, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="guide_popup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_bottom = 20.0
+text = "X"
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=2]
+
+[node name="PauseLayer" type="CanvasLayer"]
+pause_mode = 2
+layer = 10
+
+[node name="Pause" type="Control" parent="."]
+margin_right = 200.0
+margin_bottom = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Pause"]
+visible = false
+margin_right = 200.0
+margin_bottom = 100.0
+color = Color( 0, 0, 0, 0.556863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause_popup" type="Popup" parent="Pause"]
+margin_right = 200.0
+margin_bottom = 100.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="Pause/pause_popup"]
+anchor_right = 10.0
+margin_left = 10.0
+margin_top = 4.31691
+margin_right = -1810.0
+margin_bottom = 29.3169
+script = ExtResource( 2 )
+button_name = "Resume"
+
+[node name="Label" type="Label" parent="Pause/pause_popup/Resume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.5
+margin_top = -7.0
+margin_right = 46.5
+margin_bottom = 7.0
+text = "RESUME GAME"
+align = 1
+valign = 1
+
+[node name="Restart" type="Button" parent="Pause/pause_popup"]
+anchor_right = 10.0
+margin_left = 10.0
+margin_top = 35.99
+margin_right = -1810.0
+margin_bottom = 60.99
+script = ExtResource( 2 )
+button_name = "Restart"
+
+[node name="Label" type="Label" parent="Pause/pause_popup/Restart"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.5
+margin_top = -7.0
+margin_right = 47.5
+margin_bottom = 7.0
+text = "RESTART GAME"
+align = 1
+valign = 1
+
+[node name="Quit" type="Button" parent="Pause/pause_popup"]
+anchor_right = 10.0
+margin_left = 10.0
+margin_top = 67.3437
+margin_right = -1810.0
+margin_bottom = 92.3437
+script = ExtResource( 2 )
+button_name = "Quit"
+
+[node name="Label" type="Label" parent="Pause/pause_popup/Quit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.5
+margin_top = -7.0
+margin_right = 46.5
+margin_bottom = 7.0
+text = "QUIT GAME"
+align = 1
+valign = 1
