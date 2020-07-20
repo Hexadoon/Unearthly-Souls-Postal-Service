@@ -16,3 +16,7 @@ Project Manager: Vivian Teng
 
 
 ## How to Play
+
+Drag each package to the correct mailbox by matching the label. Each correct package will add 10 points, while a mismatched package will deduct 10 points.
+
+Meet the point quota to progress to the next level.
