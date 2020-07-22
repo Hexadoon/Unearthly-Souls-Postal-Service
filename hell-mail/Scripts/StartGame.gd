@@ -7,10 +7,10 @@ extends Node
 var mail = []
 var mail_type = ["Letter", "Box", "Document"]
 var timer = 9
-export var wait_time = 10
+var wait_time
 var mail_index = 0
 
-
+onready var gm = get_node("/root/World/ScoreTracker")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +18,7 @@ func _ready():
 	#pass # Replace with function body.
 	#print(typeof(get_node("MailNode")))
 	create_queue(1, true, false, false)
+	wait_time = gm.time_btwn_mail
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -12,7 +12,8 @@ export (int) var points_won_reject_bad_mail = 10
 
 var timer = 0
 var paused = false
-export var wait_time = 60
+export (int) var total_game_time = 60
+export (int) var time_btwn_mail = 10
 
 onready var goal_label = get_node("/root/World/ScoreTracker/GoalScore")
 onready var cur_label = get_node("/root/World/ScoreTracker/CurrentScore")
@@ -31,7 +32,7 @@ func _process(delta):
 	set_score_text()
 	if not paused:
 		timer += delta
-	if timer > wait_time:
+	if timer > total_game_time:
 		timer = 0
 		if current_score < goal_score:
 			#play some losing animation
