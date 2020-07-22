@@ -1,0 +1,451 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/MailWall.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="MailWall" type="CanvasLayer"]
+layer = 3
+
+[node name="Plains of Pain" type="Area2D" parent="."]
+position = Vector2( 200, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plains of Pain"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Plains of Pain"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Plains of Pain"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -42.5
+margin_right = 42.5
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Plains of Pain"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tartarus Fields" type="Area2D" parent="."]
+position = Vector2( 302.18, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tartarus Fields"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Tartarus Fields"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.741176, 0.54902, 0.54902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tartarus Fields"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -42.5
+margin_right = 42.5
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tartarus Fields"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dungeon Drive" type="Area2D" parent="."]
+position = Vector2( 407.258, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon Drive"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Dungeon Drive"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 1, 0.470588, 0.470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dungeon Drive"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Dungeon Drive"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flaming Falls" type="Area2D" parent="."]
+position = Vector2( 510.162, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flaming Falls"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Flaming Falls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.996078, 0.164706, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Flaming Falls"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Flaming Falls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lavaside Lane" type="Area2D" parent="."]
+position = Vector2( 612.342, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lavaside Lane"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Lavaside Lane"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.564706, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Lavaside Lane"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lavaside Lane"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Seven Circles" type="Area2D" parent="."]
+position = Vector2( 716.696, 50 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seven Circles"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Seven Circles"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.3538
+margin_top = -50.0
+margin_right = 45.6462
+margin_bottom = 50.0
+color = Color( 0.411765, 0.14902, 0.14902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Seven Circles"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Seven Circles"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Golden Gates Station" type="Area2D" parent="."]
+position = Vector2( 200, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Golden Gates Station"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Golden Gates Station"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Golden Gates Station"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -42.5
+margin_right = 42.5
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Golden Gates 
+Station"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Celestial Court" type="Area2D" parent="."]
+position = Vector2( 302.18, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Celestial Court"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Celestial Court"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.756863, 0.988235, 0.988235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Celestial Court"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -42.5
+margin_right = 42.5
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Celestial Court"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Elysium Park" type="Area2D" parent="."]
+position = Vector2( 407.258, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elysium Park"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Elysium Park"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.576471, 0.87451, 0.976471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Elysium Park"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Elysium Park"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lazy Cloud Bluff" type="Area2D" parent="."]
+position = Vector2( 510.162, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lazy Cloud Bluff"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Lazy Cloud Bluff"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.164706, 0.741176, 0.996078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Lazy Cloud Bluff"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lazy Cloud Bluff"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Eden Gardens" type="Area2D" parent="."]
+position = Vector2( 612.342, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eden Gardens"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Eden Gardens"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+color = Color( 0.00784314, 0.513726, 0.921569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Eden Gardens"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Eden Gardens"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Silver Shores" type="Area2D" parent="."]
+position = Vector2( 716.696, 163.05 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Silver Shores"]
+scale = Vector2( 5, 5 )
+shape = SubResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Silver Shores"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.3538
+margin_top = -50.0
+margin_right = 45.6462
+margin_bottom = 50.0
+color = Color( 0.517647, 0.631373, 0.690196, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Silver Shores"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -45.2581
+margin_right = 49.7419
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Silver Shores"
+__meta__ = {
+"_edit_use_anchors_": false
+}

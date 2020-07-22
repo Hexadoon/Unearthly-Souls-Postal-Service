@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/conveyorbelt.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tileGreen_03.png" type="Texture" id=2]
@@ -9,6 +9,12 @@
 [ext_resource path="res://Scripts/PunchOutCard.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/PauseLayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/GuideButton.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/MailWall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Hydrophilia_Iced16.tres" type="DynamicFont" id=11]
+[ext_resource path="res://guide_popup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/reject stamp.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/RejectionStamp.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/RejTable.gd" type="Script" id=15]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -23,11 +29,16 @@ extents = Vector2( 511.797, 43.8626 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 11.6121, 72.904 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 36.1748, 36.1866 )
+
 [node name="World" type="Node"]
 script = ExtResource( 4 )
 
+[node name="MailWall" parent="." instance=ExtResource( 10 )]
+
 [node name="ConveyorBelt" type="StaticBody2D" parent="."]
-position = Vector2( 510.821, 276.449 )
+position = Vector2( 510.821, 404.762 )
 collision_mask = 3
 script = ExtResource( 1 )
 
@@ -43,13 +54,13 @@ shape = SubResource( 2 )
 [node name="MailNode" type="Node" parent="."]
 
 [node name="SpawnPos" type="Area2D" parent="MailNode"]
-position = Vector2( 64.2978, 168.319 )
+position = Vector2( 64.2978, 322.538 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MailNode/SpawnPos"]
 shape = SubResource( 3 )
 
 [node name="Wall" type="Area2D" parent="."]
-position = Vector2( 1047.99, 148.136 )
+position = Vector2( 1004.1, 273.817 )
 collision_mask = 3
 script = ExtResource( 5 )
 __meta__ = {
@@ -57,7 +68,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( -45.4662, 0 )
 scale = Vector2( 1.48, 1 )
 shape = SubResource( 4 )
 
@@ -73,6 +83,7 @@ margin_left = 903.801
 margin_top = -0.112971
 margin_right = 981.273
 margin_bottom = 7.28703
+custom_fonts/font = ExtResource( 11 )
 text = "Goal:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,6 +94,7 @@ margin_left = 916.089
 margin_top = 32.5365
 margin_right = 1016.09
 margin_bottom = 46.5365
+custom_fonts/font = ExtResource( 11 )
 text = "Current:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,8 +103,8 @@ __meta__ = {
 [node name="ViewArea" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="ViewArea"]
-position = Vector2( 510, 487.297 )
-scale = Vector2( 15, 15 )
+position = Vector2( 510.821, 561.986 )
+scale = Vector2( 20, 10 )
 collision_mask = 3
 script = ExtResource( 6 )
 
@@ -123,33 +135,44 @@ __meta__ = {
 
 [node name="PauseLayer" parent="." instance=ExtResource( 8 )]
 
-[node name="guide_popup" type="Popup" parent="."]
-pause_mode = 2
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -150.0
-margin_right = 150.0
-margin_bottom = 300.0
-popup_exclusive = true
+[node name="PosterLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="guide_popup" parent="PosterLayer" instance=ExtResource( 12 )]
+
+[node name="RejStampArea" type="Node" parent="."]
+
+[node name="SpawnPos" type="Area2D" parent="RejStampArea"]
+position = Vector2( 200, 515.58 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejStampArea/SpawnPos"]
+shape = SubResource( 3 )
+
+[node name="RejectionStamp" type="Area2D" parent="."]
+position = Vector2( 200, 519.947 )
+collision_mask = 3
+script = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="RejectionStamp"]
+texture = ExtResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejectionStamp"]
+position = Vector2( 0, -4.36768 )
+shape = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="RejectionStamp"]
+
+[node name="RejTable" type="Area2D" parent="."]
+position = Vector2( 931.27, 536.974 )
+scale = Vector2( 4, 1 )
+input_pickable = false
+collision_mask = 3
+script = ExtResource( 15 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_group_": true,
+"_editor_description_": ""
 }
 
-[node name="ColorRect" type="ColorRect" parent="guide_popup"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.807843, 0.196078, 0.196078, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="exit_button" type="Button" parent="guide_popup"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -20.0
-margin_bottom = 20.0
-text = "X"
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejTable"]
+scale = Vector2( 1.48, 1 )
+shape = SubResource( 4 )

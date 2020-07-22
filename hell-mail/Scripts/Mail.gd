@@ -18,16 +18,17 @@ var names = ["Beelzebub", "Alastor", "Andras", "Baal", "Barbatos", "Dantalion",
 var from_names
 var to_person
 var from_person
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+
 export (int) var gravity = 400
 var can_grab = false
 var grabbed_offset = Vector2()
-onready var view_area = get_node("/root/World/ViewArea/Area2D").get_position()
-
+onready var view_area = get_node("/root/World/ViewArea/Area2D")
+onready var reject_area = get_node("/root/World/RejTable")
+onready var is_rejected = false
 onready var TweenNode = get_node("Tween")
-#address changes for each piece of mail, how to determine if correct?
+var texture
+
 
 
 var velocity = Vector2.ZERO
@@ -37,6 +38,8 @@ func _ready():
 	randomize()
 	#print(TweenNode)
 	#print(view_area)
+	
+	
 	set_validity()
 	make_to_label()
 	make_from_label()
@@ -47,17 +50,18 @@ func _ready():
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
-		if event.doubleclick:
+		if event.doubleclick && not view_area.is_occupied:
 			print("double click pressed")
-			TweenNode.interpolate_property(self, "position", get_position(), view_area, 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			TweenNode.interpolate_property(self, "position", get_position(), view_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 			TweenNode.start()
 			#print("playtween")
 		can_grab = event.pressed
+		print("can grab: "+ str(can_grab))
 		grabbed_offset = position - get_global_mouse_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab:
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab and not is_rejected: 
 		position = get_global_mouse_position() + grabbed_offset
 		
 func _physics_process(delta):
@@ -79,8 +83,7 @@ func set_gravity(new_gravity):
 func set_validity():
 	var chance = (randi() % 100)
 	print(chance)
-	#if ( chance < 40):
-	if ( chance < 90):	
+	if ( chance < 40):
 		valid_address = false
 	else:
 		valid_address = true
@@ -92,7 +95,12 @@ func get_type():
 func make_to_label():
 	#if valid_address:
 	to_person = names[randi()% names.size()]
-	to_address = to_person + "\n" + addresses[randi() % addresses.size()]
+	var to_addr = addresses[randi() % addresses.size()]
+	to_address = to_person + "\n" + to_addr
+	
+	texture = load("res://assets/Stamps/%s.png" % to_addr)
+	#print("to address " + to_addr)
+	$LabelStamp.texture = texture
 	print(to_person)
 	pass
 	
@@ -150,4 +158,11 @@ func set_labels():
 	$to_label.text = to_address
 	$from_label.text = from_address
 	
+func reject():
+	is_rejected = true
+	texture = load("res://assets/reject stamp.png")
+	$RejectionStamp.texture = texture
+	TweenNode.interpolate_property(self, "position", get_position(), reject_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	TweenNode.start()
+
 	

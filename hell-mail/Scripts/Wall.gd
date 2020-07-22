@@ -23,7 +23,7 @@ func on_mail_body_enter(body):
 		
 		#get_node("MailNode").remove_child(body)
 		body.queue_free()
-		gm.set_score(-10)
+		gm.set_score(gm.points_lost_dang_pack)
 		#gm.current_score -= 10
 		print(gm.current_score)
 		#$ScoreTracker.current_score -= 10

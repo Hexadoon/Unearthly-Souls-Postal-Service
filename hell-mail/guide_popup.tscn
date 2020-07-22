@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/GuideButton.gd" type="Script" id=1]
+[ext_resource path="res://assets/location poster.png" type="Texture" id=2]
+
+[node name="guide_popup" type="Popup"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -200.0
+margin_right = 200.0
+margin_bottom = 600.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 400.0
+margin_bottom = 600.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_bottom = 20.0
+text = "X"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

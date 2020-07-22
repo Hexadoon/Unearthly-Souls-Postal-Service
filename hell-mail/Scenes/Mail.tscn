@@ -4,15 +4,16 @@
 [ext_resource path="res://Scripts/Mail.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.8305, 63.6861 )
+extents = Vector2( 29.663, 29.8202 )
 
 [node name="Mail" type="KinematicBody2D"]
-position = Vector2( 64.2978, 63.348 )
+position = Vector2( 32.2978, 31.348 )
 input_pickable = true
 collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,19 +22,19 @@ shape = SubResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 64.0
-margin_top = -8.74609
-margin_right = 164.0
-margin_bottom = 26.2539
+margin_left = 32.0
+margin_top = 7.28843
+margin_right = 132.0
+margin_bottom = 42.2884
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="to_label" type="Label" parent="."]
-margin_left = 71.2192
-margin_top = -5.18372
-margin_right = 171.219
-margin_bottom = 29.8163
+margin_left = 39.2192
+margin_top = 10.8508
+margin_right = 139.219
+margin_bottom = 45.8508
 custom_colors/font_color = Color( 0.623529, 0.00784314, 0.627451, 1 )
 text = "to:"
 autowrap = true
@@ -42,22 +43,28 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 64.0
-margin_top = -64.0
-margin_right = 164.0
-margin_bottom = -29.0
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 132.0
+margin_bottom = 3.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="from_label" type="Label" parent="."]
-margin_left = 71.2192
-margin_top = -58.8324
-margin_right = 171.219
-margin_bottom = -23.8324
+margin_left = 39.2192
+margin_top = -26.8324
+margin_right = 139.219
+margin_bottom = 8.1676
 custom_colors/font_color = Color( 0.627451, 0.172549, 0.501961, 1 )
 text = "from:"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LabelStamp" type="Sprite" parent="."]
+position = Vector2( 148.131, -19.9167 )
+
+[node name="RejectionStamp" type="Sprite" parent="."]
+position = Vector2( 148.131, 32 )

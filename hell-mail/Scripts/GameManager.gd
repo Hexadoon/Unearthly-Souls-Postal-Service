@@ -3,6 +3,13 @@ extends Node
 var current_score = 100
 export (int) var goal_score
 
+export (int) var points_lost_reject_good_mail = -10
+export (int) var points_lost_wrong_sort = -10
+export (int) var points_lost_dang_pack = -10
+export (int) var points_lost_soul_docs = -10
+export (int) var points_won = 30
+export (int) var points_won_reject_bad_mail = 10
+
 var timer = 0
 var paused = false
 export var wait_time = 60
