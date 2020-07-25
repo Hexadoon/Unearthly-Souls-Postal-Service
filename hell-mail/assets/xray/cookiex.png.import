@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/box2.png-912381eacc85a8daef5c7b8894279362.stex"
+path="res://.import/cookiex.png-d21f27354e698f187d252e2afe634256.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/box2.png"
-dest_files=[ "res://.import/box2.png-912381eacc85a8daef5c7b8894279362.stex" ]
+source_file="res://assets/xray/cookiex.png"
+dest_files=[ "res://.import/cookiex.png-d21f27354e698f187d252e2afe634256.stex" ]
 
 [params]
 

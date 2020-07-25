@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mace.png-55b036d5bbf99ed650fa8b302e3e2277.stex"
+path="res://.import/goggles.png-48b5bfbc442f88ca0952b14a16952f88.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mace.png"
-dest_files=[ "res://.import/mace.png-55b036d5bbf99ed650fa8b302e3e2277.stex" ]
+source_file="res://assets/goggles.png"
+dest_files=[ "res://.import/goggles.png-48b5bfbc442f88ca0952b14a16952f88.stex" ]
 
 [params]
 

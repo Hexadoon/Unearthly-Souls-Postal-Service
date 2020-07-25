@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sock.png-a03c33579acb8df5a7c5851c3399bde6.stex"
+path="res://.import/bigbackofmail.png-4b1cbacb5c5de0c24a7d951f5598120f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sock.png"
-dest_files=[ "res://.import/sock.png-a03c33579acb8df5a7c5851c3399bde6.stex" ]
+source_file="res://assets/bigbackofmail.png"
+dest_files=[ "res://.import/bigbackofmail.png-4b1cbacb5c5de0c24a7d951f5598120f.stex" ]
 
 [params]
 

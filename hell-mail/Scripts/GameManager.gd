@@ -1,8 +1,12 @@
 extends Node
 
+#===== Scoring variables =======================================================
+export (int) var goal_score = 1000
 var current_score = 100
-export (int) var goal_score
+onready var goal_label = get_node("/root/World/ScoreTracker/GoalScore")
+onready var cur_label = get_node("/root/World/ScoreTracker/CurrentScore")
 
+# Points gained / lost fro certain conditions
 export (int) var points_lost_reject_good_mail = -10
 export (int) var points_lost_wrong_sort = -10
 export (int) var points_lost_dang_pack = -10
@@ -10,24 +14,26 @@ export (int) var points_lost_soul_docs = -10
 export (int) var points_won = 30
 export (int) var points_won_reject_bad_mail = 10
 
+#===== Timer variables =========================================================
+# Total length of a single round
+export (int) var total_game_time = 100
+# Time between each mail spawn
+export (int) var time_btwn_mail = 10
+# How long you need to hold mail in front of its slot to enter
+export (int) var hold_time = 2
+# Speed of the conveyor belt
+export (int) var speed = 100
 var timer = 0
 var paused = false
-export (int) var total_game_time = 60
-export (int) var time_btwn_mail = 10
 
-onready var goal_label = get_node("/root/World/ScoreTracker/GoalScore")
-onready var cur_label = get_node("/root/World/ScoreTracker/CurrentScore")
+var is_grabbing = false
 
-# Called when the node enters the scene tree for the first time.
+#===============================================================================
+
+
 func _ready():
-	
-	#current_score = 0
-	goal_score = 1000
 	set_score_text()
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	set_score_text()
 	if not paused:
@@ -37,12 +43,13 @@ func _process(delta):
 		if current_score < goal_score:
 			#play some losing animation
 			get_tree().reload_current_scene()
-#	pass
 
 func set_score_text(): 
-	goal_label.text = "Goal: " + str(goal_score) #+ "\n Current: "+ str(current_score)
+	goal_label.text = "Goal: " + str(goal_score) 
 	cur_label.text = "Current: " + str(current_score)
 
+
+# Getting and setting functions for the score
 func get_score():
 	return current_score
 

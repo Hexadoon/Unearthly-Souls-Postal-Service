@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Letter.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Mail.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/bigbackofmail.png" type="Texture" id=3]
+[ext_resource path="res://assets/postage stamp.png" type="Texture" id=4]
 
 [node name="Letter" instance=ExtResource( 2 )]
+position = Vector2( 156.989, 119.607 )
 script = ExtResource( 1 )
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="ColorRect2" parent="." index="2"]
+margin_left = -96.0093
+margin_top = -17.0564
+margin_right = 103.991
+margin_bottom = 32.9437
+
+[node name="to_label" parent="." index="3"]
+margin_left = -96.0093
+margin_top = -17.0564
+margin_right = 103.991
+margin_bottom = 32.9437
+
+[node name="ColorRect" parent="." index="4"]
+margin_left = -134.29
+margin_top = -94.2467
+margin_right = 65.7103
+margin_bottom = -44.2467
+
+[node name="from_label" parent="." index="5"]
+margin_left = -134.29
+margin_top = -94.2467
+margin_right = 65.7103
+margin_bottom = -44.2467
+
+[node name="LabelStamp" parent="." index="6"]
+position = Vector2( 103.991, -17.0564 )
+
+[node name="RejectionStamp" parent="." index="7"]
+position = Vector2( -104.004, 67.0701 )
+
+[node name="PostageStamp" type="Sprite" parent="." index="8"]
+position = Vector2( 111.507, -73.6365 )
+texture = ExtResource( 4 )

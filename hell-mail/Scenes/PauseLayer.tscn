@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=2]
+[ext_resource path="res://Hydrophilia_Iced16.tres" type="DynamicFont" id=3]
 
 [node name="PauseLayer" type="CanvasLayer"]
 pause_mode = 2
@@ -58,13 +59,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -46.5
-margin_top = -7.0
-margin_right = 46.5
-margin_bottom = 7.0
+margin_left = -55.0
+margin_top = -11.5
+margin_right = 55.0
+margin_bottom = 11.5
+custom_fonts/font = ExtResource( 3 )
 text = "RESUME GAME"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Restart" type="Button" parent="Pause/pause_popup"]
 anchor_right = 10.0
@@ -80,10 +85,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -47.5
-margin_top = -7.0
-margin_right = 47.5
-margin_bottom = 7.0
+margin_left = -58.5
+margin_top = -11.5
+margin_right = 58.5
+margin_bottom = 11.5
+custom_fonts/font = ExtResource( 3 )
 text = "RESTART GAME"
 align = 1
 valign = 1
@@ -103,9 +109,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -46.5
-margin_top = -7.0
+margin_top = -11.5
 margin_right = 46.5
-margin_bottom = 7.0
+margin_bottom = 11.5
+custom_fonts/font = ExtResource( 3 )
 text = "QUIT GAME"
 align = 1
 valign = 1

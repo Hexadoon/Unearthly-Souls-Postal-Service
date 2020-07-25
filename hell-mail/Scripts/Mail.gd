@@ -5,6 +5,7 @@ var addresses = ["Plains of Pain", "Tartarus Fields", "Dungeon Drive",
 "Celestial Court", "Elysium Park", "Lazy Cloud Bluff", "Eden Gardens", 
 "Silver Shores"]
 var from_addresses
+var to_addr
 var to_address
 var from_address
 var valid_address #bool
@@ -24,13 +25,13 @@ export (int) var gravity = 400
 var can_grab = false
 var grabbed_offset = Vector2()
 onready var view_area = get_node("/root/World/ViewArea/Area2D")
-onready var reject_area = get_node("/root/World/RejTable")
+onready var reject_area = get_node("/root/World/RejChute")
 onready var is_rejected = false
 onready var TweenNode = get_node("Tween")
 var texture
 
-
-
+onready var gm = get_node("/root/World/ScoreTracker")
+var is_safe
 var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
@@ -38,7 +39,7 @@ func _ready():
 	randomize()
 	#print(TweenNode)
 	#print(view_area)
-	
+	get_node("notifier").connect("screen_exited", self, "_on_screen_exited")
 	
 	set_validity()
 	make_to_label()
@@ -50,29 +51,31 @@ func _ready():
 
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
-		if event.doubleclick && not view_area.is_occupied:
-			print("double click pressed")
+		if event.doubleclick and not view_area.is_occupied and not can_grab:
+			#print("double click pressed")
 			TweenNode.interpolate_property(self, "position", get_position(), view_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 			TweenNode.start()
 			#print("playtween")
+			
 		can_grab = event.pressed
-		print("can grab: "+ str(can_grab))
+		#print("can grab: "+ str(can_grab))
 		grabbed_offset = position - get_global_mouse_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab and not is_rejected: 
 		position = get_global_mouse_position() + grabbed_offset
-		
+	
+	if  Input.is_action_just_released("left click"):	
+		can_grab = false	
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	#move_and_collide(velocity)
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
+	#for i in get_slide_count():
+		#var collision = get_slide_collision(i)
 		#print("I collided with ", collision.collider.name)
-		
-		
+
 
 	
 func set_gravity(new_gravity):
@@ -82,26 +85,26 @@ func set_gravity(new_gravity):
 	
 func set_validity():
 	var chance = (randi() % 100)
-	print(chance)
+	#print(chance)
 	if ( chance < 40):
 		valid_address = false
 	else:
 		valid_address = true
 		
 		
-func get_type():
+func get_type_all():
 	return "Mail"
 	
 func make_to_label():
 	#if valid_address:
 	to_person = names[randi()% names.size()]
-	var to_addr = addresses[randi() % addresses.size()]
+	to_addr = addresses[randi() % addresses.size()]
 	to_address = to_person + "\n" + to_addr
 	
 	texture = load("res://assets/Stamps/%s.png" % to_addr)
 	#print("to address " + to_addr)
 	$LabelStamp.texture = texture
-	print(to_person)
+	#print(to_person)
 	pass
 	
 func make_from_label():
@@ -110,7 +113,7 @@ func make_from_label():
 	from_person = from_names[randi() % from_names.size()]
 	
 	from_addresses = addresses.duplicate()
-	from_addresses.erase(to_address)
+	from_addresses.erase(to_addr)
 	
 	#if valid_address:
 	from_address = from_person + "\n" + from_addresses[randi() % from_addresses.size()]
@@ -120,15 +123,15 @@ func mess_up_addr():
 	var chance = randi() % 100
 	#if ( chance < 30 ):
 	if (chance < 50): #for demo
-		print("correct: " + to_address)
+		#print("correct: " + to_address)
 		# mess up location name
 		
 		var rand = from_addresses[randi() % from_addresses.size()]
-		print(rand)
+		#print(rand)
 		var prefix = to_address.rsplit(" ", true, 1)[0]
 		var suffix = rand.rsplit(" ", true, 1)[1]
 		to_address = prefix + " " + suffix
-		print("wrong: " + to_address)
+		#print("wrong: " + to_address)
 		$to_label.add_color_override("font_color", Color.red)
 	
 	#elif (30 <= chance && chance < 50):
@@ -162,7 +165,23 @@ func reject():
 	is_rejected = true
 	texture = load("res://assets/reject stamp.png")
 	$RejectionStamp.texture = texture
-	TweenNode.interpolate_property(self, "position", get_position(), reject_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	TweenNode.interpolate_property(self, "position", get_position(), reject_area.get_position(), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	TweenNode.start()
 
+func _on_screen_exited():
+	queue_free()
+	
+func hide_all():
+	$to_label.hide()
+	$from_label.hide()
+	$RejectionStamp.visible = false
+	$LabelStamp.visible = false
+	pass
+	
+func show_all():
+	$to_label.show()
+	$from_label.show()
+	$RejectionStamp.visible = true
+	$LabelStamp.visible = true
+	pass
 	

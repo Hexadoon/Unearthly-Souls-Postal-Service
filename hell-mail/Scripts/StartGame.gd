@@ -1,11 +1,8 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var mail = []
-var mail_type = ["Letter", "Box", "Document"]
+#var mail_type = ["Letter", "Box", "Document"]
+var mail_type = ["Letter", "Box"]
 var timer = 9
 var wait_time
 var mail_index = 0
@@ -21,34 +18,31 @@ func _ready():
 	wait_time = gm.time_btwn_mail
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	timer += delta
 	if timer > wait_time:
 		timer = 0
 		spawn_object(mail_index)
 		mail_index += 1
-		print("timer passed")
-	#if get_position().x > get_viewport().size.x:
-	#	print("passed the wall")
-	
 
 
-func load_scene():
-	#autopopulate array of mail with random pieces of mail
-	pass
-	
 func create_queue(_ratio, letters, boxes, docs):
-	#if
 	for i in range(100):
-		#mail[i] = mail_type[randi() % mail_type.size() ]
-		mail.append("Letter")
+		mail.append(mail_type[randi() % mail_type.size() ])
+		#mail.append("Box")
 	
 
 func spawn_object(mail_index):
 	#need to add object to node view as a child
+	print(mail[mail_index])
 	var mail_res = load("res://Scenes/%s.tscn" % mail[mail_index])
 	var mail_node = mail_res.instance()
+	if mail[mail_index] == "Letter":
+		mail_node.apply_scale(Vector2(0.3, 0.3))
+	elif mail[mail_index] == "Box":
+		mail_node.apply_scale(Vector2(0.4, 0.4))
+	mail_node.hide_all()
 	mail_node.set_position(get_node("MailNode/SpawnPos").get_position())
 	get_node("MailNode").add_child(mail_node)
 	return mail_node

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/conveyorbelt.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tileGreen_03.png" type="Texture" id=2]
@@ -11,56 +11,67 @@
 [ext_resource path="res://Scripts/GuideButton.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/MailWall.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Hydrophilia_Iced16.tres" type="DynamicFont" id=11]
-[ext_resource path="res://guide_popup.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/reject stamp.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/guide_popup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/stamp.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/RejectionStamp.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/RejTable.gd" type="Script" id=15]
+[ext_resource path="res://assets/punch.png" type="Texture" id=16]
+[ext_resource path="res://assets/goggles.png" type="Texture" id=17]
+[ext_resource path="res://assets/light.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Goggles.gd" type="Script" id=19]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 880, 88 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 511.797, 43.8626 )
-
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 511.797, 22.9733 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 11.6121, 72.904 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.6121, 72.904 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 36.1748, 36.1866 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 48.4534, 29.1261 )
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
 
 [node name="MailWall" parent="." instance=ExtResource( 10 )]
+layer = -1
 
 [node name="ConveyorBelt" type="StaticBody2D" parent="."]
-position = Vector2( 510.821, 404.762 )
+material = SubResource( 1 )
+position = Vector2( 502.303, 343.995 )
 collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="ConveyorBelt"]
 position = Vector2( 0, -1.52588e-05 )
 scale = Vector2( 1.25, 1.25 )
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConveyorBelt"]
-position = Vector2( 0, 1.52588e-05 )
-shape = SubResource( 2 )
+position = Vector2( 0, -2.65135 )
+shape = SubResource( 3 )
 
 [node name="MailNode" type="Node" parent="."]
 
 [node name="SpawnPos" type="Area2D" parent="MailNode"]
-position = Vector2( 64.2978, 322.538 )
+position = Vector2( 55.7803, 261.771 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MailNode/SpawnPos"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Wall" type="Area2D" parent="."]
-position = Vector2( 1004.1, 273.817 )
+position = Vector2( 995.583, 213.05 )
 collision_mask = 3
 script = ExtResource( 5 )
 __meta__ = {
@@ -69,7 +80,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 scale = Vector2( 1.48, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="ScoreTracker" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -103,20 +114,25 @@ __meta__ = {
 [node name="ViewArea" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="ViewArea"]
-position = Vector2( 510.821, 561.986 )
-scale = Vector2( 20, 10 )
+position = Vector2( 502.303, 476.207 )
+scale = Vector2( 15, 8 )
 collision_mask = 3
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea/Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="PunchOutCard" type="Button" parent="."]
-margin_left = 36.191
-margin_top = 536.974
-margin_right = 48.191
-margin_bottom = 556.974
-text = "(punch out card)"
+anchor_left = 0.014
+anchor_top = 0.827
+anchor_right = 0.014
+anchor_bottom = 0.827
+margin_left = -11.1932
+margin_top = -28.4135
+margin_right = 100.807
+margin_bottom = 32.5865
+icon = ExtResource( 16 )
+flat = true
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -143,13 +159,27 @@ layer = 6
 [node name="RejStampArea" type="Node" parent="."]
 
 [node name="SpawnPos" type="Area2D" parent="RejStampArea"]
-position = Vector2( 200, 515.58 )
+position = Vector2( 200, 505.678 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RejStampArea/SpawnPos"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="GoggleArea" type="Node" parent="."]
+
+[node name="SpawnPos" type="Area2D" parent="GoggleArea"]
+position = Vector2( 55.7803, 556.088 )
+
+[node name="GoggleAreaCol" type="CollisionShape2D" parent="GoggleArea/SpawnPos"]
+shape = SubResource( 4 )
+
+[node name="RejChute" type="Area2D" parent="."]
+position = Vector2( 957.779, 484.191 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejChute"]
+shape = SubResource( 4 )
 
 [node name="RejectionStamp" type="Area2D" parent="."]
-position = Vector2( 200, 519.947 )
+position = Vector2( 200, 505.678 )
 collision_mask = 3
 script = ExtResource( 14 )
 
@@ -157,22 +187,30 @@ script = ExtResource( 14 )
 texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RejectionStamp"]
-position = Vector2( 0, -4.36768 )
-shape = SubResource( 5 )
+position = Vector2( 0, -4.29153e-06 )
+shape = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="RejectionStamp"]
 
-[node name="RejTable" type="Area2D" parent="."]
-position = Vector2( 931.27, 536.974 )
-scale = Vector2( 4, 1 )
-input_pickable = false
+[node name="Goggle" type="Area2D" parent="."]
+position = Vector2( 55.7803, 556.088 )
 collision_mask = 3
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true,
-"_editor_description_": ""
-}
+script = ExtResource( 19 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RejTable"]
-scale = Vector2( 1.48, 1 )
-shape = SubResource( 4 )
+[node name="GoggleLight" type="Light2D" parent="Goggle"]
+visible = false
+position = Vector2( 0, 6.10352e-05 )
+texture = ExtResource( 18 )
+texture_scale = 2.0
+mode = 3
+range_item_cull_mask = 2
+
+[node name="Sprite" type="Sprite" parent="Goggle"]
+position = Vector2( 0, 6.10352e-05 )
+texture = ExtResource( 17 )
+
+[node name="Tween" type="Tween" parent="Goggle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goggle"]
+position = Vector2( 0, 6.10352e-05 )
+shape = SubResource( 7 )

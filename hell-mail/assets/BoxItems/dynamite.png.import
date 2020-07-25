@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spear.png-c768ff7ea791b2de2c7a74bcb621ca2e.stex"
+path="res://.import/dynamite.png-68d4a7d02f490cc3ca9b7aec54ce3e60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/spear.png"
-dest_files=[ "res://.import/spear.png-c768ff7ea791b2de2c7a74bcb621ca2e.stex" ]
+source_file="res://assets/BoxItems/dynamite.png"
+dest_files=[ "res://.import/dynamite.png-68d4a7d02f490cc3ca9b7aec54ce3e60.stex" ]
 
 [params]
 

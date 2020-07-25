@@ -18,7 +18,7 @@ func _ready():
 func on_mail_body_enter(body):
 	#print(body.get_name())
 	#print(body.get_type())
-	if body.get_type() == "Mail":
+	if body.get_type_all() == "Mail":
 		print(body, "entered area")
 		
 		#get_node("MailNode").remove_child(body)
