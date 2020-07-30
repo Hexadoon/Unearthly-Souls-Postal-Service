@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Hell-mail"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/StartScene.tscn"
 config/icon="res://Sprites/icon.png"
+
+[autoload]
+
+global="*res://Scripts/global.gd"
 
 [input]
 

@@ -38,10 +38,10 @@ margin_right = 65.7103
 margin_bottom = -44.2467
 
 [node name="LabelStamp" parent="." index="6"]
-position = Vector2( 103.991, -17.0564 )
+position = Vector2( 86.507, 9.99999 )
 
 [node name="RejectionStamp" parent="." index="7"]
-position = Vector2( -104.004, 67.0701 )
+position = Vector2( -88.5753, 54.7973 )
 
 [node name="PostageStamp" type="Sprite" parent="." index="8"]
 position = Vector2( 111.507, -73.6365 )

@@ -1,10 +1,5 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var grav
 var viewing_mail = null
 onready var gm = get_node("/root/World/ScoreTracker")
@@ -31,13 +26,17 @@ func on_mail_body_enter(body):
 		is_occupied = true
 		body.show_all()
 		if body.get_type() == "Letter":	
-			body.apply_scale(Vector2(4.0, 4.0))
+			body.apply_scale(Vector2(3.0, 3.0))
 			
 		if body.get_type() == "Box":
 			var sprite_text = body.get_node("Sprite").texture
 			old_box_text = sprite_text
-			body.get_node("Sprite").texture = load("res://assets/bigmail.png")
+			body.get_node("Sprite").texture = load("res://assets/reupload/boxhead4.png")
 			body.apply_scale(Vector2(3.0, 3.0))
+			body.light_mask = 2
+			for sprite in body.get_children():
+				if sprite is Sprite:
+					sprite.light_mask = 2
 		
 	
 func on_stamp_enter(area):
@@ -59,6 +58,7 @@ func on_stamp_enter(area):
 			area.get_node("GoggleLight").visible = true
 			area.get_node("Sprite").visible = false
 			viewing_mail.hide_all()
+			
 
 	
 func on_mail_body_exit(body):
@@ -69,11 +69,16 @@ func on_mail_body_exit(body):
 		is_occupied = false
 		body.hide_all()
 		if body.get_type() == "Letter":
-			body.apply_scale(Vector2(0.25, 0.25))
+			body.apply_scale(Vector2(1.0/3, 1.0/3))
+			
 			
 		if body.get_type() == "Box":
 			body.get_node("Sprite").texture = old_box_text
 			body.apply_scale(Vector2(1.0/3, 1.0/3))
+			body.light_mask = 1
+			for sprite in body.get_children():
+				if sprite is Sprite:
+					sprite.light_mask = 1
 
 func on_stamp_exit(area):
 	if area.get_name() == "Goggle":

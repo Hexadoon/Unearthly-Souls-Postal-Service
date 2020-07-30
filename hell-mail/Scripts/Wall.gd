@@ -1,13 +1,6 @@
 extends Area2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-#var gm = load("res://Scripts/GameManager.gd").new()
 onready var gm = get_node("/root/World/ScoreTracker")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	connect('body_entered', self, 'on_mail_body_enter')
 	#pass # Replace with function body.
@@ -25,9 +18,8 @@ func on_mail_body_enter(body):
 		body.queue_free()
 		gm.set_score(gm.points_lost_dang_pack)
 		#gm.current_score -= 10
-		print(gm.current_score)
-		#$ScoreTracker.current_score -= 10
-		#delete mail from scene tree
+		#print(gm.current_score)
+
 		pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

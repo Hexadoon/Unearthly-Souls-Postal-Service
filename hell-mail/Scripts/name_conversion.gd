@@ -1,12 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var file = File.new()
 	file.open("res://Scripts/names.tres", File.READ)

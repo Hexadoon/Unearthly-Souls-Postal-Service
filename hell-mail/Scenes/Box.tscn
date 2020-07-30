@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Mail.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/bigmail.png" type="Texture" id=2]
+[ext_resource path="res://assets/reupload/boxhead4.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Box.gd" type="Script" id=3]
 [ext_resource path="res://HiddenItemVisibility.tres" type="Material" id=5]
 [ext_resource path="res://assets/chocolate.png" type="Texture" id=8]
@@ -9,55 +9,54 @@
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="Box" instance=ExtResource( 1 )]
-light_mask = 2
 position = Vector2( 157.119, 117.508 )
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-light_mask = 2
 material = SubResource( 1 )
-scale = Vector2( 1, 1 )
+scale = Vector2( 0.8, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="Sprite1" type="Sprite" parent="." index="1"]
-light_mask = 2
 material = ExtResource( 5 )
 position = Vector2( -110.054, -54.1592 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Sprite2" type="Sprite" parent="." index="2"]
-light_mask = 2
 material = ExtResource( 5 )
 position = Vector2( 78.044, -54.1592 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Sprite3" type="Sprite" parent="." index="3"]
-light_mask = 2
 material = ExtResource( 5 )
 position = Vector2( -81.2424, 28.04 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="Sprite4" type="Sprite" parent="." index="4"]
-light_mask = 2
 material = ExtResource( 5 )
 position = Vector2( 95.967, 28.04 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
 [node name="Sprite5" type="Sprite" parent="." index="5"]
-light_mask = 2
 material = ExtResource( 5 )
 position = Vector2( 0, 80.882 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="to_label" parent="." index="8"]
-margin_left = 42.9274
-margin_top = 62.1478
-margin_right = 142.927
-margin_bottom = 97.1478
+margin_left = -25.2321
+margin_top = -37.7527
+margin_right = 74.7675
+margin_bottom = -2.7527
 
 [node name="from_label" parent="." index="10"]
-margin_left = -140.011
-margin_top = -96.6705
-margin_right = -40.0117
-margin_bottom = -61.6705
+margin_left = -149.535
+margin_top = -111.976
+margin_right = -49.5353
+margin_bottom = -76.9763
+
+[node name="LabelStamp" parent="." index="11"]
+position = Vector2( 115.167, -66.4619 )
+
+[node name="RejectionStamp" parent="." index="12"]
+position = Vector2( 93.0894, 50.4703 )

@@ -54,8 +54,8 @@ func _process(delta):
 
 func on_mail_enter(body):
 	if body.get_type_all() == "Mail":
-		if body.get_type() == "Box":
-			body.apply_scale(Vector2(0.75, 0.75))
+		#if body.get_type() == "Box":
+		#	body.apply_scale(Vector2(0.75, 0.75))
 		addr = body.to_address.split("\n", true, 1)[1]
 		grabbed = body.can_grab
 		valid = body.valid_address
@@ -67,8 +67,8 @@ func on_mail_enter(body):
 func on_mail_exit(body):
 	timer = 0
 	timer_on = false
-	if body.get_type() == "Box":
-		body.apply_scale(Vector2(4.0/3, 4.0/3))
+	#if body.get_type() == "Box":
+	#	body.apply_scale(Vector2(4.0/3, 4.0/3))
 
 func start_timer():
 	timer_on = true

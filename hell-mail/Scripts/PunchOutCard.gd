@@ -8,5 +8,6 @@ func _ready():
 
 func on_pause_but_pressed():
 	get_tree().paused = true
-	get_node("/root/World/PauseLayer/Pause/Background").visible = true
-	get_node("/root/World/PauseLayer/Pause/pause_popup").show()
+	get_node("/root/World/PauseLayer/Pause/pause_popup/Background").visible = true
+	#get_node("/root/World/PauseLayer/Pause/pause_popup").show()
+	get_node("/root/World/PauseLayer/Pause").activate()

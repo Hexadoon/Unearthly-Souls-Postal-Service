@@ -20,6 +20,8 @@ func put_items():
 	#var num_items = (randi() % 4) + 1
 	# 1 - 3 items spawn per box
 	var num_items = (randi() % 2) + 1
+	if global.level >= 5:
+		num_items += randi() % 2
 	# maybe chances with regards to valid_address?
 	if (randi() % 100) < 65: 
 		is_safe = true	

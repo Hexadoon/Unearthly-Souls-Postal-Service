@@ -1,24 +1,54 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/MailWall.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MailWallTotal.gd" type="Script" id=2]
+[ext_resource path="res://assets/usethis_cabinet.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.5712, 12.0494 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.47054, 7.14767 )
 
 [node name="MailWall" type="CanvasLayer"]
 layer = 3
 
+[node name="MailWall" type="Area2D" parent="."]
+position = Vector2( 524.393, 128.497 )
+scale = Vector2( 0.600005, 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="MailWall"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -319.248
+margin_top = -122.054
+margin_right = 318.752
+margin_bottom = 119.946
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MailWall"]
+scale = Vector2( 30, 10 )
+shape = SubResource( 1 )
+
 [node name="Plains of Pain" type="Area2D" parent="."]
-position = Vector2( 200, 50 )
+position = Vector2( 572.091, 126.691 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plains of Pain"]
+position = Vector2( -6.10352e-05, 0.682343 )
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Plains of Pain"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -32,6 +62,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Plains of Pain"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -42.5
@@ -44,7 +75,7 @@ __meta__ = {
 }
 
 [node name="Tartarus Fields" type="Area2D" parent="."]
-position = Vector2( 302.18, 50 )
+position = Vector2( 572.162, 46.0458 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -52,9 +83,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tartarus Fields"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Tartarus Fields"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -69,6 +101,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Tartarus Fields"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -42.5
@@ -81,7 +114,7 @@ __meta__ = {
 }
 
 [node name="Dungeon Drive" type="Area2D" parent="."]
-position = Vector2( 407.258, 50 )
+position = Vector2( 381.132, 127.08 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -89,9 +122,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon Drive"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Dungeon Drive"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -106,6 +140,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Dungeon Drive"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -118,7 +153,7 @@ __meta__ = {
 }
 
 [node name="Flaming Falls" type="Area2D" parent="."]
-position = Vector2( 510.162, 50 )
+position = Vector2( 476.597, 208.134 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -126,9 +161,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flaming Falls"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Flaming Falls"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -143,6 +179,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Flaming Falls"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -155,7 +192,7 @@ __meta__ = {
 }
 
 [node name="Lavaside Lane" type="Area2D" parent="."]
-position = Vector2( 612.342, 50 )
+position = Vector2( 476.601, 45.5055 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -163,9 +200,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lavaside Lane"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Lavaside Lane"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -180,6 +218,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Lavaside Lane"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -192,7 +231,7 @@ __meta__ = {
 }
 
 [node name="Seven Circles" type="Area2D" parent="."]
-position = Vector2( 716.696, 50 )
+position = Vector2( 667.704, 46.0458 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -200,9 +239,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seven Circles"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Seven Circles"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -217,6 +257,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Seven Circles"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -229,7 +270,7 @@ __meta__ = {
 }
 
 [node name="Golden Gates Station" type="Area2D" parent="."]
-position = Vector2( 200, 163.05 )
+position = Vector2( 667.704, 208.134 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -237,9 +278,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Golden Gates Station"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Golden Gates Station"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -253,6 +295,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Golden Gates Station"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -42.5
@@ -266,7 +309,7 @@ __meta__ = {
 }
 
 [node name="Celestial Court" type="Area2D" parent="."]
-position = Vector2( 302.18, 163.05 )
+position = Vector2( 667.704, 126.691 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -274,9 +317,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Celestial Court"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Celestial Court"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -291,6 +335,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Celestial Court"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -42.5
@@ -303,7 +348,7 @@ __meta__ = {
 }
 
 [node name="Elysium Park" type="Area2D" parent="."]
-position = Vector2( 407.258, 163.05 )
+position = Vector2( 476.601, 127.08 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -311,9 +356,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elysium Park"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Elysium Park"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -328,6 +374,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Elysium Park"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -340,7 +387,7 @@ __meta__ = {
 }
 
 [node name="Lazy Cloud Bluff" type="Area2D" parent="."]
-position = Vector2( 510.162, 163.05 )
+position = Vector2( 381.132, 46.0458 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -348,9 +395,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lazy Cloud Bluff"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Lazy Cloud Bluff"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -365,6 +413,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Lazy Cloud Bluff"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -377,7 +426,7 @@ __meta__ = {
 }
 
 [node name="Eden Gardens" type="Area2D" parent="."]
-position = Vector2( 612.342, 163.05 )
+position = Vector2( 572.091, 208.134 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -385,9 +434,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Eden Gardens"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Eden Gardens"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -402,6 +452,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Eden Gardens"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581
@@ -414,7 +465,7 @@ __meta__ = {
 }
 
 [node name="Silver Shores" type="Area2D" parent="."]
-position = Vector2( 716.696, 163.05 )
+position = Vector2( 381.132, 208.134 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -422,9 +473,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Silver Shores"]
 scale = Vector2( 5, 5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Silver Shores"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -439,6 +491,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Silver Shores"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -45.2581

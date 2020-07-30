@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scripts/conveyorbelt.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/tileGreen_03.png" type="Texture" id=2]
@@ -17,10 +17,25 @@
 [ext_resource path="res://assets/conveyer belt-06.png" type="Texture" id=15]
 [ext_resource path="res://assets/punch.png" type="Texture" id=16]
 [ext_resource path="res://assets/goggles.png" type="Texture" id=17]
-[ext_resource path="res://assets/light.png" type="Texture" id=18]
+[ext_resource path="res://assets/reupload/light.png" type="Texture" id=18]
 [ext_resource path="res://Scripts/Goggles.gd" type="Script" id=19]
 [ext_resource path="res://assets/conveyer belt-07.png" type="Texture" id=20]
-[ext_resource path="res://assets/location poster.png" type="Texture" id=21]
+[ext_resource path="res://assets/usethis_location poster.png" type="Texture" id=21]
+[ext_resource path="res://assets/reupload/longhandclock.png" type="Texture" id=22]
+[ext_resource path="res://assets/reupload/clock.png" type="Texture" id=23]
+[ext_resource path="res://assets/reupload/shorthandclock.png" type="Texture" id=24]
+[ext_resource path="res://assets/background.png" type="Texture" id=25]
+[ext_resource path="res://assets/bg real-02.png" type="Texture" id=26]
+[ext_resource path="res://assets/accepted items.png" type="Texture" id=27]
+[ext_resource path="res://assets/contraband.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/ExitButton.gd" type="Script" id=29]
+[ext_resource path="res://assets/usethis_questionmark.png" type="Texture" id=30]
+[ext_resource path="res://assets/tools.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/HelpButton.gd" type="Script" id=32]
+[ext_resource path="res://assets/usethis_chute.png" type="Texture" id=33]
+[ext_resource path="res://assets/reupload/note.png" type="Texture" id=34]
+[ext_resource path="res://Scripts/RejTable.gd" type="Script" id=35]
+[ext_resource path="res://assets/Arcade-Goblins.wav" type="AudioStream" id=36]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1
@@ -43,24 +58,52 @@ extents = Vector2( 511.797, 22.9733 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 11.6121, 72.904 )
-
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 36.1748, 36.1866 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 48.4534, 29.1261 )
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 11.6121, 72.904 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 74.9102, 8.99948 )
+
 [node name="World" type="Node"]
 script = ExtResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.1428
+margin_right = 3.14282
+mouse_filter = 2
+texture = ExtResource( 26 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reference" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.286275 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 25 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MailWall" parent="." instance=ExtResource( 10 )]
 layer = -1
 
 [node name="ConveyorBelt" type="StaticBody2D" parent="."]
 material = SubResource( 1 )
-position = Vector2( 502.303, 343.995 )
+position = Vector2( 502.303, 321.483 )
 collision_mask = 3
 script = ExtResource( 1 )
 
@@ -82,126 +125,140 @@ playing = true
 position = Vector2( 0, -2.65134 )
 shape = SubResource( 4 )
 
-[node name="MailNode" type="Node" parent="."]
-
-[node name="SpawnPos" type="Area2D" parent="MailNode"]
-position = Vector2( 55.7803, 261.771 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MailNode/SpawnPos"]
-shape = SubResource( 5 )
-
-[node name="Wall" type="Area2D" parent="."]
-position = Vector2( 995.583, 213.05 )
-collision_mask = 3
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-scale = Vector2( 1.48, 1 )
-shape = SubResource( 6 )
-
 [node name="ScoreTracker" type="Node" parent="."]
 script = ExtResource( 3 )
 
+[node name="Sprite" type="Sprite" parent="ScoreTracker"]
+position = Vector2( 838.543, 177.08 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 34 )
+
 [node name="GoalScore" type="Label" parent="ScoreTracker"]
-anchor_left = 0.012
-anchor_top = 0.021
-anchor_right = 0.034
-anchor_bottom = 0.032
+anchor_left = -0.102014
+anchor_top = 0.2496
+anchor_right = -0.0800143
+anchor_bottom = 0.2756
 margin_left = 903.801
 margin_top = -0.112971
 margin_right = 981.273
 margin_bottom = 7.28703
 custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Goal:"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="CurrentScore" type="Label" parent="ScoreTracker"]
+anchor_left = -0.114014
+anchor_top = 0.240906
+anchor_right = -0.114014
+anchor_bottom = 0.255906
 margin_left = 916.089
 margin_top = 32.5365
 margin_right = 1016.09
 margin_bottom = 46.5365
 custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Current:"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="ViewArea" type="Node" parent="."]
+[node name="Clock" type="Node2D" parent="."]
+position = Vector2( 72.444, 64.7468 )
 
-[node name="Area2D" type="Area2D" parent="ViewArea"]
-position = Vector2( 502.303, 476.207 )
-scale = Vector2( 15, 8 )
-collision_mask = 3
-script = ExtResource( 6 )
+[node name="Face" type="Sprite" parent="Clock"]
+position = Vector2( 1.55301, -0.555222 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea/Area2D"]
-shape = SubResource( 5 )
+[node name="MinuteHand" type="Sprite" parent="Clock"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+offset = Vector2( 0, -30 )
 
-[node name="PunchOutCard" type="Button" parent="."]
-anchor_left = 0.014
-anchor_top = 0.827
-anchor_right = 0.014
-anchor_bottom = 0.827
-margin_left = -11.1932
-margin_top = -28.4135
-margin_right = 100.807
-margin_bottom = 32.5865
-icon = ExtResource( 16 )
+[node name="HourHand" type="Sprite" parent="Clock"]
+position = Vector2( 1.67591, 0.194778 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 24 )
+offset = Vector2( -25, 0 )
+
+[node name="HelpButton" type="Button" parent="."]
+margin_left = 974.533
+margin_top = 523.085
+margin_right = 1982.53
+margin_bottom = 2022.08
+rect_scale = Vector2( 0.05, 0.05 )
+icon = ExtResource( 30 )
 flat = true
-script = ExtResource( 7 )
+script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GuideButton" type="Button" parent="."]
-margin_left = 64.2473
-margin_top = 120.194
-margin_right = 6165.25
-margin_bottom = 8286.19
-rect_scale = Vector2( 0.01, 0.01 )
+[node name="PosterButtons" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="GuideButton" type="Button" parent="PosterButtons"]
+margin_left = 138.344
+margin_top = 12.487
+margin_right = 2790.34
+margin_bottom = 3428.49
+rect_scale = Vector2( 0.06, 0.06 )
 text = "(guide image)"
 icon = ExtResource( 21 )
+flat = true
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+popup = "guide"
 
-[node name="PauseLayer" parent="." instance=ExtResource( 8 )]
+[node name="ContrabandButton" type="Button" parent="PosterButtons"]
+margin_left = 867.304
+margin_top = 12.487
+margin_right = 3880.3
+margin_bottom = 2059.49
+rect_scale = Vector2( 0.04, 0.04 )
+icon = ExtResource( 28 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+popup = "contraband"
 
-[node name="PosterLayer" type="CanvasLayer" parent="."]
-layer = 6
+[node name="AcceptedButton" type="Button" parent="PosterButtons"]
+margin_left = 734.369
+margin_top = 12.487
+margin_right = 3747.37
+margin_bottom = 2059.49
+rect_scale = Vector2( 0.04, 0.04 )
+icon = ExtResource( 27 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+popup = "accepted"
 
-[node name="guide_popup" parent="PosterLayer" instance=ExtResource( 12 )]
+[node name="MailNode" type="Node" parent="."]
+
+[node name="SpawnPos" type="Area2D" parent="MailNode"]
+position = Vector2( 55.7803, 239.259 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MailNode/SpawnPos"]
+shape = SubResource( 5 )
 
 [node name="RejStampArea" type="Node" parent="."]
 
 [node name="SpawnPos" type="Area2D" parent="RejStampArea"]
-position = Vector2( 200, 505.678 )
+position = Vector2( 522.091, 560.002 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RejStampArea/SpawnPos"]
 shape = SubResource( 5 )
 
-[node name="GoggleArea" type="Node" parent="."]
-
-[node name="SpawnPos" type="Area2D" parent="GoggleArea"]
-position = Vector2( 55.7803, 556.088 )
-
-[node name="GoggleAreaCol" type="CollisionShape2D" parent="GoggleArea/SpawnPos"]
-shape = SubResource( 5 )
-
-[node name="RejChute" type="Area2D" parent="."]
-position = Vector2( 957.779, 484.191 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RejChute"]
-shape = SubResource( 5 )
-
 [node name="RejectionStamp" type="Area2D" parent="."]
-position = Vector2( 200, 505.678 )
+position = Vector2( 522.162, 560.002 )
 collision_mask = 3
 script = ExtResource( 14 )
 
@@ -214,8 +271,16 @@ shape = SubResource( 7 )
 
 [node name="Tween" type="Tween" parent="RejectionStamp"]
 
+[node name="GoggleArea" type="Node" parent="."]
+
+[node name="SpawnPos" type="Area2D" parent="GoggleArea"]
+position = Vector2( 642.172, 560.002 )
+
+[node name="GoggleAreaCol" type="CollisionShape2D" parent="GoggleArea/SpawnPos"]
+shape = SubResource( 5 )
+
 [node name="Goggle" type="Area2D" parent="."]
-position = Vector2( 55.7803, 556.088 )
+position = Vector2( 642.172, 560.002 )
 collision_mask = 3
 script = ExtResource( 19 )
 
@@ -223,7 +288,6 @@ script = ExtResource( 19 )
 visible = false
 position = Vector2( 0, 6.10352e-05 )
 texture = ExtResource( 18 )
-texture_scale = 2.0
 mode = 3
 range_item_cull_mask = 2
 
@@ -236,3 +300,215 @@ texture = ExtResource( 17 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goggle"]
 position = Vector2( 0, 6.10352e-05 )
 shape = SubResource( 8 )
+
+[node name="PunchOutCard" type="Button" parent="."]
+anchor_left = 0.014
+anchor_top = 0.827
+anchor_right = 0.014
+anchor_bottom = 0.827
+margin_left = 316.796
+margin_top = 38.3198
+margin_right = 428.796
+margin_bottom = 99.3198
+icon = ExtResource( 16 )
+flat = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall" type="Area2D" parent="."]
+position = Vector2( 995.583, 216.637 )
+collision_mask = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+scale = Vector2( 1.48, 1 )
+shape = SubResource( 6 )
+
+[node name="ViewArea" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="ViewArea"]
+position = Vector2( 502.303, 422.534 )
+scale = Vector2( 15, 8 )
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewArea/Area2D"]
+shape = SubResource( 5 )
+
+[node name="PauseLayer" parent="." instance=ExtResource( 8 )]
+
+[node name="HelpLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 100
+
+[node name="help_popup" type="Popup" parent="HelpLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="HelpLayer/help_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HelpLayer/help_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -492.956
+margin_top = -263.023
+margin_right = 507.044
+margin_bottom = 136.977
+rect_scale = Vector2( 1, 1.66 )
+texture = ExtResource( 31 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="HelpLayer/help_popup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+text = "X"
+flat = true
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PosterLayer" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Background" type="ColorRect" parent="PosterLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.776471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="guide_popup" parent="PosterLayer" instance=ExtResource( 12 )]
+
+[node name="contraband_popup" type="Popup" parent="PosterLayer"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PosterLayer/contraband_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="PosterLayer/contraband_popup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_bottom = 20.0
+text = "X"
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="accepted_popup" type="Popup" parent="PosterLayer"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PosterLayer/accepted_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit_button" type="Button" parent="PosterLayer/accepted_popup"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_bottom = 20.0
+text = "X"
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RejChute" type="Area2D" parent="."]
+position = Vector2( 943.172, 362.033 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejChute"]
+shape = SubResource( 5 )
+
+[node name="RejChuteCover" type="Area2D" parent="."]
+position = Vector2( 946.304, 456.007 )
+script = ExtResource( 35 )
+
+[node name="Sprite" type="Sprite" parent="RejChuteCover"]
+position = Vector2( 0, 14.8117 )
+texture = ExtResource( 33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RejChuteCover"]
+position = Vector2( 0, 67.0783 )
+shape = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 36 )
+volume_db = 6.0
+autoplay = true
+
+[editable path="PosterLayer/guide_popup"]

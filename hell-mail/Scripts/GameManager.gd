@@ -6,7 +6,7 @@ var current_score = 100
 onready var goal_label = get_node("/root/World/ScoreTracker/GoalScore")
 onready var cur_label = get_node("/root/World/ScoreTracker/CurrentScore")
 
-# Points gained / lost fro certain conditions
+# Points gained / lost for certain conditions
 export (int) var points_lost_reject_good_mail = -10
 export (int) var points_lost_wrong_sort = -10
 export (int) var points_lost_dang_pack = -10
@@ -27,7 +27,7 @@ var timer = 0
 var paused = false
 
 var is_grabbing = false
-
+#onready var num_level = global.level
 #===============================================================================
 
 
@@ -38,11 +38,17 @@ func _process(delta):
 	set_score_text()
 	if not paused:
 		timer += delta
+		clock_tick()
 	if timer > total_game_time:
 		timer = 0
 		if current_score < goal_score:
 			#play some losing animation
 			get_tree().reload_current_scene()
+		else:
+			var reduce = current_score - goal_score
+			global.level += 1
+			get_tree().reload_current_scene()
+			goal_score = goal_score - reduce
 
 func set_score_text(): 
 	goal_label.text = "Goal: " + str(goal_score) 
@@ -56,3 +62,8 @@ func get_score():
 func set_score(change):
 	current_score += change
 	return current_score
+	
+
+func clock_tick():
+	var x = 240.0 * timer / total_game_time 
+	get_node("/root/World/Clock/HourHand").set_rotation_degrees(x)

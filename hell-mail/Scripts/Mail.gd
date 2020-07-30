@@ -56,18 +56,21 @@ func _input_event(_viewport, event, _shape_idx):
 			TweenNode.interpolate_property(self, "position", get_position(), view_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 			TweenNode.start()
 			#print("playtween")
-			
-		can_grab = event.pressed
-		#print("can grab: "+ str(can_grab))
-		grabbed_offset = position - get_global_mouse_position()
+		
+		if not gm.is_grabbing:	
+			can_grab = event.pressed
+			gm.is_grabbing = can_grab
+			print("can grab: "+ str(gm.is_grabbing))
+			grabbed_offset = position - get_global_mouse_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab and not is_rejected: 
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab and not is_rejected and gm.is_grabbing: 
 		position = get_global_mouse_position() + grabbed_offset
 	
 	if  Input.is_action_just_released("left click"):	
 		can_grab = false	
+		gm.is_grabbing = false
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -163,9 +166,11 @@ func set_labels():
 	
 func reject():
 	is_rejected = true
-	texture = load("res://assets/reject stamp.png")
+	texture = load("res://assets/reject stamp clear.png")
 	$RejectionStamp.texture = texture
-	TweenNode.interpolate_property(self, "position", get_position(), reject_area.get_position(), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$RejectionStamp.set_rotation_degrees((randi() % 100) - 50)	
+	self.apply_scale(Vector2(0.7, 0.7))
+	TweenNode.interpolate_property(self, "position", get_position(), reject_area.get_position(), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	TweenNode.start()
 
 func _on_screen_exited():

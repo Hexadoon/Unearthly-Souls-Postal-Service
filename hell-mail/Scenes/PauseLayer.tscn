@@ -1,56 +1,50 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=2]
 [ext_resource path="res://Hydrophilia_Iced16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/menu.png" type="Texture" id=4]
 
 [node name="PauseLayer" type="CanvasLayer"]
 pause_mode = 2
 layer = 100
 
 [node name="Pause" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -50.0
-margin_right = 100.0
-margin_bottom = 50.0
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="ColorRect" parent="Pause"]
-margin_right = 200.0
-margin_bottom = 100.0
-color = Color( 0, 0, 0, 0.556863 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="pause_popup" type="Popup" parent="Pause"]
 visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -50.0
-margin_right = 100.0
-margin_bottom = 50.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 popup_exclusive = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="ColorRect" parent="Pause/pause_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Resume" type="Button" parent="Pause/pause_popup"]
-anchor_right = 10.0
-margin_left = 10.0
-margin_top = 4.31691
-margin_right = -1810.0
-margin_bottom = 29.3169
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -263.023
+margin_right = 150.0
+margin_bottom = -243.023
+rect_min_size = Vector2( 300, 0 )
 script = ExtResource( 2 )
 button_name = "Resume"
 
@@ -72,11 +66,15 @@ __meta__ = {
 }
 
 [node name="Restart" type="Button" parent="Pause/pause_popup"]
-anchor_right = 10.0
-margin_left = 10.0
-margin_top = 35.99
-margin_right = -1810.0
-margin_bottom = 60.99
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -219.955
+margin_right = 150.0
+margin_bottom = -199.955
+rect_min_size = Vector2( 300, 0 )
 script = ExtResource( 2 )
 button_name = "Restart"
 
@@ -95,11 +93,15 @@ align = 1
 valign = 1
 
 [node name="Quit" type="Button" parent="Pause/pause_popup"]
-anchor_right = 10.0
-margin_left = 10.0
-margin_top = 67.3437
-margin_right = -1810.0
-margin_bottom = 92.3437
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -181.374
+margin_right = 150.0
+margin_bottom = -161.374
+rect_min_size = Vector2( 300, 0 )
 script = ExtResource( 2 )
 button_name = "Quit"
 
@@ -116,3 +118,20 @@ custom_fonts/font = ExtResource( 3 )
 text = "QUIT GAME"
 align = 1
 valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="Pause/pause_popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -492.956
+margin_top = -142.216
+margin_right = 507.044
+margin_bottom = 257.784
+rect_scale = Vector2( 1, 1.66 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
