@@ -13,4 +13,6 @@ func on_button_pressed(button_name):
 			pass
 		"Exit": 
 			get_tree().quit()
+		"Credits":
+			get_tree().change_scene("res://Scenes/Credits.tscn")
 	pass

@@ -91,3 +91,16 @@ text = "Select Level"
 align = 1
 script = ExtResource( 6 )
 button_name = "Load"
+
+[node name="Credits" type="Button" parent="Buttons"]
+margin_left = 62.0
+margin_top = 544.313
+margin_right = 962.0
+margin_bottom = 592.313
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+button_name = "Credits"
