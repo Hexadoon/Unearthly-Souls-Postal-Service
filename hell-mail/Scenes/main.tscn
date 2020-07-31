@@ -24,7 +24,7 @@
 [ext_resource path="res://assets/reupload/longhandclock.png" type="Texture" id=22]
 [ext_resource path="res://assets/reupload/clock.png" type="Texture" id=23]
 [ext_resource path="res://assets/reupload/shorthandclock.png" type="Texture" id=24]
-[ext_resource path="res://Scenes/WinScreen.gd" type="Script" id=25]
+[ext_resource path="res://Scripts/WinScreen.gd" type="Script" id=25]
 [ext_resource path="res://assets/bg real-02.png" type="Texture" id=26]
 [ext_resource path="res://assets/accepted items.png" type="Texture" id=27]
 [ext_resource path="res://assets/contraband.png" type="Texture" id=28]
@@ -37,7 +37,7 @@
 [ext_resource path="res://Scripts/RejTable.gd" type="Script" id=35]
 [ext_resource path="res://assets/Arcade-Goblins.wav" type="AudioStream" id=36]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=37]
-[ext_resource path="res://Scenes/LoseScreen.gd" type="Script" id=38]
+[ext_resource path="res://Scripts/LoseScreen.gd" type="Script" id=38]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 light_mode = 1

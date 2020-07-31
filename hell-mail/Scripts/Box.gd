@@ -23,7 +23,7 @@ func put_items():
 	if global.level >= 5:
 		num_items += randi() % 2
 	# maybe chances with regards to valid_address?
-	if (randi() % 100) < 65: 
+	if (randi() % 100) < (65 - global.level * 2): 
 		is_safe = true	
 	else:
 		is_safe = false
@@ -40,6 +40,7 @@ func put_items():
 		var slots_dup = slots.duplicate()
 		for i in range(num_items):
 			var rand_slot = randi() % slots_dup.size()
+			print(rand_slot)
 			var rand_obj = items[randi() % items.size()]
 			get_node("Sprite%s" % slots_dup[rand_slot]).texture = load("res://assets/BoxItems/%s.png" % rand_obj)
 			get_node("Sprite%s" % slots_dup[rand_slot]).set_rotation_degrees(randi() % 360)

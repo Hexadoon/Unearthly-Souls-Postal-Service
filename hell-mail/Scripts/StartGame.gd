@@ -7,19 +7,20 @@ var timer = 9
 var wait_time
 var mail_index = 0
 var lvl
-var level_dir = {}
+var level_dir =  {"0":[100, 0], "1":[90, 10], "2":[80, 20], "3":[70, 30], "4":[60, 40], "5":[50, 50], "6":[50, 50], "7":[40, 60], "8":[30, 70], "9":[20, 80]}
+
 onready var gm = get_node("/root/World/ScoreTracker")
 
 
 func _ready():
-	load_level_info()
+	#load_level_info()
 	#load_scene()
 	#pass # Replace with function body.
 	#print(typeof(get_node("MailNode")))
 	lvl = global.level
 	#create_queue(100 , 0)
 	print(lvl)
-	#print(level_dir)
+	print(level_dir)
 	create_queue(level_dir[str(lvl)][0],level_dir[str(lvl)][1])
 	wait_time = gm.time_btwn_mail
 
@@ -66,6 +67,7 @@ func load_level_info():
 	var file = File.new()
 	file.open("res://assets/load_level.tres", File.READ)
 	var content = file.get_as_text()
+	#print (content)
 	var arr = content.split("\n", false, 0)
 	for i in arr.size():
 		var ratios = arr[i].split(",", false, 2)
