@@ -25,9 +25,9 @@
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=2]
 
-[sub_resource type="Theme" id=8]
+[sub_resource type="Theme" id=3]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
@@ -37,38 +37,38 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
-Button/styles/normal = SubResource( 7 )
+Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = null
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 900, 257 )
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 16 )
 region_rect = Rect2( 0, 0, 900, 257 )
 
-[sub_resource type="StyleBoxTexture" id=11]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 15 )
 region_rect = Rect2( 0, 0, 900, 257 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 1317, 384 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 1317, 384 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=10]
 texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 1317, 384 )
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="Theme" id=11]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
@@ -77,15 +77,15 @@ Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 2 )
-Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = SubResource( 4 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 9 )
+Button/styles/pressed = SubResource( 10 )
 
-[sub_resource type="StyleBoxTexture" id=17]
+[sub_resource type="StyleBoxTexture" id=12]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 1275, 386 )
 
-[sub_resource type="Theme" id=18]
+[sub_resource type="Theme" id=13]
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
@@ -95,45 +95,45 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = null
-Button/styles/normal = SubResource( 17 )
+Button/styles/normal = SubResource( 12 )
 Button/styles/pressed = null
 
-[sub_resource type="StyleBoxTexture" id=22]
+[sub_resource type="StyleBoxTexture" id=14]
 texture = ExtResource( 20 )
 region_rect = Rect2( 0, 0, 1379, 418 )
 
-[sub_resource type="StyleBoxTexture" id=21]
+[sub_resource type="StyleBoxTexture" id=15]
 texture = ExtResource( 19 )
 region_rect = Rect2( 0, 0, 1379, 418 )
 
-[sub_resource type="StyleBoxTexture" id=20]
+[sub_resource type="StyleBoxTexture" id=16]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 1379, 418 )
 
-[sub_resource type="StyleBoxTexture" id=12]
+[sub_resource type="StyleBoxTexture" id=17]
 texture = ExtResource( 18 )
 region_rect = Rect2( 0, 0, 1307, 376 )
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=18]
 texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 1307, 376 )
 
-[sub_resource type="StyleBoxTexture" id=14]
+[sub_resource type="StyleBoxTexture" id=19]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 1307, 376 )
 
-[sub_resource type="StyleBoxFlat" id=19]
+[sub_resource type="StyleBoxFlat" id=20]
 bg_color = Color( 0, 0, 0.509804, 1 )
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.188235, 0.188235, 0.52549, 1 )
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="Theme" id=16]
-default_font = SubResource( 6 )
+[sub_resource type="Theme" id=22]
+default_font = SubResource( 7 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
@@ -142,9 +142,9 @@ Button/constants/hseparation = 2
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 12 )
-Button/styles/normal = SubResource( 13 )
-Button/styles/pressed = SubResource( 14 )
+Button/styles/hover = SubResource( 17 )
+Button/styles/normal = SubResource( 18 )
+Button/styles/pressed = SubResource( 19 )
 PopupMenu/colors/font_color = Color( 1, 0.811765, 0.266667, 1 )
 PopupMenu/colors/font_color_accel = Color( 0.701961, 0.701961, 0.701961, 0.8 )
 PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
@@ -157,10 +157,10 @@ PopupMenu/icons/radio_checked = null
 PopupMenu/icons/radio_unchecked = null
 PopupMenu/icons/submenu = null
 PopupMenu/icons/unchecked = null
-PopupMenu/styles/hover = SubResource( 19 )
+PopupMenu/styles/hover = SubResource( 20 )
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
-PopupMenu/styles/panel = SubResource( 15 )
+PopupMenu/styles/panel = SubResource( 21 )
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
 
@@ -221,11 +221,11 @@ margin_left = 62.0
 margin_top = 399.533
 margin_right = 462.0
 margin_bottom = 485.533
-theme = SubResource( 8 )
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
-custom_fonts/font = SubResource( 6 )
+theme = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,8 +237,8 @@ margin_left = 62.0
 margin_top = 495.606
 margin_right = 462.0
 margin_bottom = 581.606
-theme = SubResource( 5 )
-custom_fonts/font = SubResource( 6 )
+theme = SubResource( 11 )
+custom_fonts/font = SubResource( 7 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -250,11 +250,11 @@ margin_left = 533.769
 margin_top = 495.606
 margin_right = 933.769
 margin_bottom = 581.606
-theme = SubResource( 18 )
-custom_styles/hover = SubResource( 22 )
-custom_styles/pressed = SubResource( 21 )
-custom_styles/normal = SubResource( 20 )
-custom_fonts/font = SubResource( 6 )
+theme = SubResource( 13 )
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = SubResource( 7 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -266,8 +266,8 @@ margin_left = 533.769
 margin_top = 399.533
 margin_right = 933.769
 margin_bottom = 485.533
-theme = SubResource( 16 )
-custom_fonts/font = SubResource( 6 )
+theme = SubResource( 22 )
+custom_fonts/font = SubResource( 7 )
 align = 1
 script = ExtResource( 6 )
 __meta__ = {
