@@ -27,7 +27,7 @@ Packages also must be searched for contraband! Use your X-Ray goggles in the Too
 
 Rejected parcels (either with incorrect addresses or containing contraband) must be stamped with the Rejection Stamp and sent through the Rejection Chute for destruction!
 
-# CONTROLS:
+# Controls
 
 CLICK on a letter or package to drag it around the screen. To bring a letter or package closer in order to read its label, DOUBLE CLICK on it.
 
@@ -37,7 +37,7 @@ To use a tool from the Tool Bar, either CLICK and DRAG the tool onto the letter 
 
 CLICK on the Posters at any time to view information on valid location addresses, banned items, and safe items.
 
-# TOOLS:
+# Tools
 
 The Rejection Stamp: Each wrongly addressed or contraband parcel must be rejected before it can be destroyed. CLICK and DRAG the Rejection Stamp onto the mail, then send it off through the Rejection Chute.
 
