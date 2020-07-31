@@ -37,7 +37,7 @@ To use a tool from the Tool Bar, either CLICK and DRAG the tool onto the letter 
 
 CLICK on the Posters at any time to view information on valid location addresses, banned items, and safe items.
 
-# Tools
+## Tools
 
 The Rejection Stamp: Each wrongly addressed or contraband parcel must be rejected before it can be destroyed. CLICK and DRAG the Rejection Stamp onto the mail, then send it off through the Rejection Chute.
 
