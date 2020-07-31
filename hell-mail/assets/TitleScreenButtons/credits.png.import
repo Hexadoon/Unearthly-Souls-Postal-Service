@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unicorn.jpg-ab01c5fa603373e2027b501847d75a5f.stex"
+path="res://.import/credits.png-bfdc6e736b7801590b2aae13716dffc9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/unicorn.jpg"
-dest_files=[ "res://.import/unicorn.jpg-ab01c5fa603373e2027b501847d75a5f.stex" ]
+source_file="res://assets/TitleScreenButtons/credits.png"
+dest_files=[ "res://.import/credits.png-bfdc6e736b7801590b2aae13716dffc9.stex" ]
 
 [params]
 

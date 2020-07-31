@@ -1,7 +1,5 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$pause_popup/Background.visible = false
 	#$pause_popup.hide()
@@ -40,7 +38,6 @@ func on_Button_pressed(button_name):
 #func _process(delta):
 #	pass
 func deactivate():
-	
 	$pause_popup.hide()
 	$pause_popup.set_process(false)
 	$pause_popup.set_physics_process(false)

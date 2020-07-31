@@ -14,7 +14,6 @@ var safe
 
 var mail_being_handled
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	#for slot in self.get_children():
 		#slot.destination = slot.name

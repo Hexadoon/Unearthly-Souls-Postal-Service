@@ -18,7 +18,6 @@ func _input_event(_viewport, event, _shape_idx):
 		grabbed_offset = position - get_global_mouse_position()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab:
 		position = get_global_mouse_position() + grabbed_offset

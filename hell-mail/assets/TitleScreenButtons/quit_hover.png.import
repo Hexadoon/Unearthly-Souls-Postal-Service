@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileGreen_03.png-fbc938b83d2102a9c94bd67fb22f7aef.stex"
+path="res://.import/quit_hover.png-5ca43e21deb3208c0ab9da54ff736e84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tileGreen_03.png"
-dest_files=[ "res://.import/tileGreen_03.png-fbc938b83d2102a9c94bd67fb22f7aef.stex" ]
+source_file="res://assets/TitleScreenButtons/quit_hover.png"
+dest_files=[ "res://.import/quit_hover.png-5ca43e21deb3208c0ab9da54ff736e84.stex" ]
 
 [params]
 

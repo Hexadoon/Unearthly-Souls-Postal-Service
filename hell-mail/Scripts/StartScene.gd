@@ -2,7 +2,8 @@ extends Control
 
 func _ready():
 	for button in $Buttons.get_children() :
-		button.connect("pressed", self, "on_button_pressed", [button.button_name])
+		if button is Button:
+			button.connect("pressed", self, "on_button_pressed", [button.button_name])
 
 func on_button_pressed(button_name):
 	match button_name:

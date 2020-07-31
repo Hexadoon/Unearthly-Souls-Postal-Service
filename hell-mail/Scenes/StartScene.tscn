@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://JollyLodger-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Creepster120.tres" type="DynamicFont" id=2]
@@ -6,14 +6,163 @@
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/StartScene.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Load.gd" type="Script" id=6]
+[ext_resource path="res://assets/TitleScreenButtons/play_hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/bg revised.png" type="Texture" id=8]
+[ext_resource path="res://assets/TitleScreenButtons/blank.png" type="Texture" id=9]
+[ext_resource path="res://assets/TitleScreenButtons/quit game.png" type="Texture" id=10]
+[ext_resource path="res://assets/TitleScreenButtons/select_pressed.png" type="Texture" id=11]
+[ext_resource path="res://assets/TitleScreenButtons/credits.png" type="Texture" id=12]
+[ext_resource path="res://assets/TitleScreenButtons/quit_hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/TitleScreenButtons/quit_pressed.png" type="Texture" id=14]
+[ext_resource path="res://assets/TitleScreenButtons/click to play.png" type="Texture" id=15]
+[ext_resource path="res://assets/TitleScreenButtons/play_pressed.png" type="Texture" id=16]
+[ext_resource path="res://assets/TitleScreenButtons/select level.png" type="Texture" id=17]
+[ext_resource path="res://assets/TitleScreenButtons/select_hover.png" type="Texture" id=18]
+[ext_resource path="res://assets/TitleScreenButtons/credits_pressed.png" type="Texture" id=19]
+[ext_resource path="res://assets/TitleScreenButtons/credits_hover.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="StyleBoxTexture" id=7]
+
+[sub_resource type="Theme" id=8]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = null
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 900, 257 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 900, 257 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 900, 257 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 30
 font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 1317, 384 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 1317, 384 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 1317, 384 )
+
+[sub_resource type="Theme" id=5]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 1275, 386 )
+
+[sub_resource type="Theme" id=18]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource( 17 )
+Button/styles/pressed = null
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 1379, 418 )
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 1379, 418 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 1379, 418 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 18 )
+region_rect = Rect2( 0, 0, 1307, 376 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 1307, 376 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 1307, 376 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0, 0.509804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.188235, 0.188235, 0.52549, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id=16]
+default_font = SubResource( 6 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 13 )
+Button/styles/pressed = SubResource( 14 )
+PopupMenu/colors/font_color = Color( 1, 0.811765, 0.266667, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.701961, 0.701961, 0.701961, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = null
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = SubResource( 19 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 15 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -23,7 +172,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 62.0
 margin_top = 50.0
 margin_right = 962.0
@@ -42,6 +202,7 @@ __meta__ = {
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+visible = false
 margin_left = 62.0
 margin_top = 197.0
 margin_right = 962.0
@@ -55,52 +216,61 @@ scroll_active = false
 
 [node name="Buttons" type="Node" parent="."]
 
-[node name="Exit" type="Button" parent="Buttons"]
-margin_left = 62.0
-margin_top = 469.724
-margin_right = 962.0
-margin_bottom = 517.724
-custom_fonts/font = SubResource( 2 )
-text = "Quit Game"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-button_name = "Exit"
-
 [node name="Start" type="Button" parent="Buttons"]
 margin_left = 62.0
-margin_top = 285.431
-margin_right = 962.0
-margin_bottom = 333.431
-custom_fonts/font = SubResource( 2 )
-text = "New Game"
+margin_top = 399.533
+margin_right = 462.0
+margin_bottom = 485.533
+theme = SubResource( 8 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 button_name = "Start"
 
-[node name="Load" type="OptionButton" parent="Buttons"]
+[node name="Exit" type="Button" parent="Buttons"]
 margin_left = 62.0
-margin_top = 373.877
-margin_right = 962.0
-margin_bottom = 421.877
-custom_fonts/font = SubResource( 2 )
-text = "Select Level"
-align = 1
-script = ExtResource( 6 )
-button_name = "Load"
+margin_top = 495.606
+margin_right = 462.0
+margin_bottom = 581.606
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+button_name = "Exit"
 
 [node name="Credits" type="Button" parent="Buttons"]
-margin_left = 62.0
-margin_top = 544.313
-margin_right = 962.0
-margin_bottom = 592.313
-custom_fonts/font = SubResource( 2 )
-text = "Credits"
+margin_left = 533.769
+margin_top = 495.606
+margin_right = 933.769
+margin_bottom = 581.606
+theme = SubResource( 18 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 21 )
+custom_styles/normal = SubResource( 20 )
+custom_fonts/font = SubResource( 6 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 button_name = "Credits"
+
+[node name="Load" type="OptionButton" parent="Buttons"]
+margin_left = 533.769
+margin_top = 399.533
+margin_right = 933.769
+margin_bottom = 485.533
+theme = SubResource( 16 )
+custom_fonts/font = SubResource( 6 )
+align = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+button_name = "Load"

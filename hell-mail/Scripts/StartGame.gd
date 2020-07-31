@@ -18,8 +18,8 @@ func _ready():
 	#print(typeof(get_node("MailNode")))
 	lvl = global.level
 	#create_queue(100 , 0)
-	print(lvl)
-	print(level_dir)
+	#print(lvl)
+	#print(level_dir)
 	create_queue(level_dir[str(lvl)][0],level_dir[str(lvl)][1])
 	wait_time = gm.time_btwn_mail
 
@@ -46,7 +46,7 @@ func create_queue(lratio, bratio):
 
 func spawn_object(mail_index):
 	#need to add object to node view as a child
-	print(mail[mail_index])
+	#print(mail[mail_index])
 	var mail_res = load("res://Scenes/%s.tscn" % mail[mail_index])
 	var mail_node = mail_res.instance()
 	if mail[mail_index] == "Letter":

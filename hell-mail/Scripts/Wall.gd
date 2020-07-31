@@ -3,16 +3,13 @@ onready var gm = get_node("/root/World/ScoreTracker")
 
 func _ready():
 	connect('body_entered', self, 'on_mail_body_enter')
-	#pass # Replace with function body.
 
-#func _on_body_enter(body):
-#	print(str('Body entered: ', body.get_name()))
 
 func on_mail_body_enter(body):
 	#print(body.get_name())
 	#print(body.get_type())
 	if body.get_type_all() == "Mail":
-		print(body, "entered area")
+		#print(body, "entered area")
 		
 		#get_node("MailNode").remove_child(body)
 		body.queue_free()

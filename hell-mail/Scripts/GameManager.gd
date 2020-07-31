@@ -1,7 +1,7 @@
 extends Node
 
 #===== Scoring variables =======================================================
-export (int) var goal_score = 1000
+#export (int) var goal_score = 250
 var current_score = 100
 onready var goal_label = get_node("/root/World/ScoreTracker/GoalScore")
 onready var cur_label = get_node("/root/World/ScoreTracker/CurrentScore")
@@ -16,7 +16,7 @@ export (int) var points_won_reject_bad_mail = 10
 
 #===== Timer variables =========================================================
 # Total length of a single round
-export (int) var total_game_time = 100
+export (int) var total_game_time = 120
 # Time between each mail spawn
 export (int) var time_btwn_mail = 10
 # How long you need to hold mail in front of its slot to enter
@@ -39,19 +39,26 @@ func _process(delta):
 	if not paused:
 		timer += delta
 		clock_tick()
+	if current_score < 0:
+		get_node("/root/World/LoseScreen/ColorRect").visible = true
+		get_node("/root/World/LoseScreen/LosePopup").show()
+		get_tree().paused = true
 	if timer > total_game_time:
 		timer = 0
-		if current_score < goal_score:
+		if current_score < global.goal_score:
+			get_node("/root/World/LoseScreen/ColorRect").visible = true
+			get_node("/root/World/LoseScreen/LosePopup").show()
+			get_tree().paused = true
 			#play some losing animation
-			get_tree().reload_current_scene()
+			#get_tree().reload_current_scene()
 		else:
-			var reduce = current_score - goal_score
-			global.level += 1
-			get_tree().reload_current_scene()
-			goal_score = goal_score - reduce
+			get_node("/root/World/WinScreen/ColorRect").visible = true
+			get_node("/root/World/WinScreen/WinPopup").show()
+			get_tree().paused = true
+			
 
 func set_score_text(): 
-	goal_label.text = "Goal: " + str(goal_score) 
+	goal_label.text = "Goal: " + str(global.goal_score) 
 	cur_label.text = "Current: " + str(current_score)
 
 

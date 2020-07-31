@@ -11,7 +11,7 @@ func add_levels():
 	file.open("res://assets/load_level.tres", File.READ)
 	var content = file.get_as_text()
 	var arr = content.split("\n", false, 0)
-	dropdown.add_item("Select Level")
+	dropdown.add_item(" ")
 	dropdown.set_item_disabled(0, true)
 	for i in arr.size():
 		dropdown.add_item("Level " + str(i + 1))
@@ -19,7 +19,7 @@ func add_levels():
 func on_item_selected(id):
 	var text = str(dropdown.get_item_text(id))
 	text = text.rsplit(" ", false, 1)[1]
-	print(text)
+	#print(text)
 	#gm.set_level(int(text[-1]) - 1)
 	global.level = int(text) - 1
 	get_tree().change_scene("res://Scenes/main.tscn")

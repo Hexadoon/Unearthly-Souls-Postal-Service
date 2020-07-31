@@ -5,7 +5,8 @@ var viewing_mail = null
 onready var gm = get_node("/root/World/ScoreTracker")
 var is_occupied = false
 var old_box_text
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	connect('body_entered', self, 'on_mail_body_enter')
 	connect('body_exited', self, 'on_mail_body_exit')
@@ -14,13 +15,13 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 #func _process(delta):
 #	pass
 
 func on_mail_body_enter(body):
 	if body.get_type_all() == "Mail":
-		print(body, "entered viewarea")
+		#print(body, "entered viewarea")
 		grav = body.set_gravity(0)
 		viewing_mail = body
 		is_occupied = true
@@ -32,6 +33,7 @@ func on_mail_body_enter(body):
 			var sprite_text = body.get_node("Sprite").texture
 			old_box_text = sprite_text
 			body.get_node("Sprite").texture = load("res://assets/reupload/boxhead4.png")
+			body.get_node("Backing").visible = true
 			body.apply_scale(Vector2(3.0, 3.0))
 			body.light_mask = 2
 			for sprite in body.get_children():
@@ -58,6 +60,8 @@ func on_stamp_enter(area):
 			area.get_node("GoggleLight").visible = true
 			area.get_node("Sprite").visible = false
 			viewing_mail.hide_all()
+			viewing_mail.get_node("Backing").visible = true
+			viewing_mail.get_node("Sprite").visible = false
 			
 
 	
@@ -74,6 +78,7 @@ func on_mail_body_exit(body):
 			
 		if body.get_type() == "Box":
 			body.get_node("Sprite").texture = old_box_text
+			body.get_node("Backing").visible = false
 			body.apply_scale(Vector2(1.0/3, 1.0/3))
 			body.light_mask = 1
 			for sprite in body.get_children():
@@ -87,4 +92,6 @@ func on_stamp_exit(area):
 		if viewing_mail != null:
 			area.get_node("GoggleLight").visible = false
 			area.get_node("Sprite").visible = true
+			#viewing_mail.get_node("Backing").visible = false
+			viewing_mail.get_node("Sprite").visible = true
 			viewing_mail.show_all()

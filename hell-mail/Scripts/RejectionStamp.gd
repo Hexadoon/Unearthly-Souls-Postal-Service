@@ -7,9 +7,10 @@ var velocity = Vector2.ZERO
 onready var TweenNode = get_node("Tween")
 onready var rejstamp_area = get_node("/root/World/RejStampArea/SpawnPos").get_position()
 onready var view_area = get_node("/root/World/ViewArea/Area2D")
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	pass # Replace with function body.
+	pass 
 
 
 func _input_event(_viewport, event, _shape_idx):
@@ -19,7 +20,7 @@ func _input_event(_viewport, event, _shape_idx):
 		grabbed_offset = position - get_global_mouse_position()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab:
 		position = get_global_mouse_position() + grabbed_offset

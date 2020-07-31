@@ -60,10 +60,10 @@ func _input_event(_viewport, event, _shape_idx):
 		if not gm.is_grabbing:	
 			can_grab = event.pressed
 			gm.is_grabbing = can_grab
-			print("can grab: "+ str(gm.is_grabbing))
+			#print("can grab: "+ str(gm.is_grabbing))
 			grabbed_offset = position - get_global_mouse_position()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_grab and not is_rejected and gm.is_grabbing: 
 		position = get_global_mouse_position() + grabbed_offset
@@ -71,6 +71,7 @@ func _process(_delta):
 	if  Input.is_action_just_released("left click"):	
 		can_grab = false	
 		gm.is_grabbing = false
+		
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -78,8 +79,6 @@ func _physics_process(delta):
 	#for i in get_slide_count():
 		#var collision = get_slide_collision(i)
 		#print("I collided with ", collision.collider.name)
-
-
 	
 func set_gravity(new_gravity):
 	var old_grav = gravity
@@ -135,7 +134,7 @@ func mess_up_addr():
 		var suffix = rand.rsplit(" ", true, 1)[1]
 		to_address = prefix + " " + suffix
 		#print("wrong: " + to_address)
-		$to_label.add_color_override("font_color", Color.red)
+		#$to_label.add_color_override("font_color", Color.red)
 	
 	#elif (30 <= chance && chance < 50):
 		#misspelled name
@@ -143,11 +142,11 @@ func mess_up_addr():
 		var new_person = to_person
 		var misspell = 3 + randi()% (to_person.length() - 3)
 		for i in range(misspell):
-			var charnew = char(97 + randi() % 26)
+			var charnew = char(33 + randi() % 31)
 			new_person[randi() % to_person.length()] = charnew
 			new_person = new_person.capitalize()
 		to_address = to_address.replace(to_person, new_person)
-		$to_label.add_color_override("font_color", Color.orange)
+		#$to_label.add_color_override("font_color", Color.orange)
 		
 #	elif (50 <= chance && chance < 75):
 #		#incorrect location symbol
