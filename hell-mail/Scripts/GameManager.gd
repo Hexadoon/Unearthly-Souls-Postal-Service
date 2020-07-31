@@ -54,6 +54,8 @@ func _process(delta):
 			#play some losing animation
 			#get_tree().reload_current_scene()
 		else:
+			if global.level == 9:
+				get_node("/root/World/WinScreen/WinPopup/Label").text = "You beat the game! :)" 
 			get_node("/root/World/WinScreen/ColorRect").visible = true
 			get_node("/root/World/WinScreen/WinPopup").show()
 			get_tree().paused = true
