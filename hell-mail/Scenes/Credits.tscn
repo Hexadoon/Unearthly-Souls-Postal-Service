@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Hydrophilia_Iced.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Hydrophilia_Iced30.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Hydrophilia_Iced16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/CreditsBackButton.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -109,6 +110,19 @@ margin_right = 87.5
 margin_bottom = -27.0
 custom_fonts/font = ExtResource( 3 )
 text = "Hexadoon Studios 2020"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 15.7727
+margin_top = 10.5216
+margin_right = 63.7727
+margin_bottom = 39.5216
+custom_fonts/font = ExtResource( 3 )
+text = "back"
+flat = true
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

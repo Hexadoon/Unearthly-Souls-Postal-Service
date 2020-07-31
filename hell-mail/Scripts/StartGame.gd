@@ -18,7 +18,7 @@ func _ready():
 	#print(typeof(get_node("MailNode")))
 	lvl = global.level
 	#create_queue(100 , 0)
-	#print(lvl)
+	print(lvl)
 	#print(level_dir)
 	create_queue(level_dir[str(lvl)][0],level_dir[str(lvl)][1])
 	wait_time = gm.time_btwn_mail

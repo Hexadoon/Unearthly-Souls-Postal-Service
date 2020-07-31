@@ -22,5 +22,6 @@ func on_Button_pressed(button_name):
 			get_tree().paused = false
 		"Start":
 			get_tree().change_scene("res://Scenes/StartScene.tscn")
+			get_tree().paused = false
 		"Quit":
 			get_tree().quit()	

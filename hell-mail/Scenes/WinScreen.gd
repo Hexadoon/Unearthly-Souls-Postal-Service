@@ -16,7 +16,7 @@ func on_Button_pressed(button_name):
 	#print(button_name)
 	match button_name:
 		"Next":
-			var reduce = gm.current_score - global.goal_score
+			var reduce = (gm.current_score - global.goal_score) / 5
 			if reduce > 100: reduce = 100
 			global.level += 1
 			global.goal_score = global.goal_score - reduce
@@ -27,5 +27,6 @@ func on_Button_pressed(button_name):
 			get_tree().paused = false
 		"Start":
 			get_tree().change_scene("res://Scenes/StartScene.tscn")
+			get_tree().paused = false
 		"Quit":
 			get_tree().quit()	

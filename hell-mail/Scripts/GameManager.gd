@@ -33,6 +33,8 @@ var is_grabbing = false
 
 func _ready():
 	set_score_text()
+	time_btwn_mail -= (0.5 * global.level)
+	hold_time -= (0.1 * global.level)
 	
 func _process(delta):
 	set_score_text()
